@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://magdielortiz.github.io/CortoCircuito//Images/WebThumbnail.jpg"/>
+  <meta property="og:title" content="Somos una plataforma independiente de autogestión cultural."/>
+  <title>Corto Circuito</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/ils7evd.css">
+  <link rel="icon" href="..//Images/Favicon.png" type="image" sizes="16x16">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="..//index.html">
+        <img src="..//Images/CC-Web-Logo.svg" alt="Logo" />
+      </a>
+    </div>
+    <div class="header-buttons">
+      <div class="top-buttons">
+        <button id="about-toggle" class="header-button about-button">About</button>
+        <button id="menu-toggle" class="header-button menu-button">Menu</button>
+      </div>
+      <div class="agenda-label">Agenda Cultural</div>
+    </div>
+    <div class="header-border"></div>
+  </header>
+
+  <div id="dropdown-about" class="dropdown">
+    <div class="dropdown-content">
+      <p>
+        Somos una plataforma independiente de autogestión cultural. Articulamos eventos y prácticas contemporáneas en el arte y la cultura alternativa en Santa Marta.
+      </p>
+    </div>
+    <div class="dropdown-border"></div>
+  </div>
+
+  <div id="dropdown-menu" class="dropdown">
+    <div class="dropdown-content">
+      <a href="..//pages/programa.html">Programa</a>
+      <a href="..//pages/manifiesto.html">Manifiesto</a>
+  
+      <div class="dropdown-row">
+        <a href="..//pages/aliados.html">Aliados</a>
+        <a href="https://www.instagram.com/cortocircuito.sm/" target="_blank" rel="noopener noreferrer" class="insta-link">Insta</a>
+      </div>
+    </div>
+    <div class="dropdown-border"></div>
+  </div>
+
+  <div class="main-wrapper">
+    <main class="main">
+      <div class="center-icon">
+        <img src="..//Images/CC-Web-ElectricSymbol.svg" alt="Icono central" />
+      </div>
+      <div class="overlay">
+        <img src="..//Images/CC-Web-WarningIcon.svg" alt="Icono" class="overlay-icon" />
+        <p>Riesgo de sobrecarga cultural. Sugerimos continuar la navegación en su dispositivo móvil.</p>
+      </div>
+      <div class="program">
+        <h1>julio 24—29<br>2025</h1>
+
+        <!-- Event Blocks -->
+        <!-- Repeat this block 15 times -->
+        <div class="events">
+          <h2>
+            <img src="..//Images/CC-Web-Bullet.svg" alt="Icon" width="12" height="12">
+            Librería
+          </h2>
+          <div class="time">
+            <p>jueves 24<br>5:30 pm—7:30 pm<br>Librería Café de Pombo</p>
+          </div>
+          <p>
+            Sintiéndolo mucho: Presentación del libro de<br>la escritora Silvia Suárez.
+          </p>
+        </div>
+
+        <div class="events">
+          <h2>
+            <img src="..//Images/CC-Web-Bullet.svg" alt="Icon" width="12" height="12">
+            Librería
+          </h2>
+          <div class="time">
+            <p>jueves 24<br>5:30 pm—7:30 pm<br>Librería Café de Pombo</p>
+          </div>
+          <p>
+            Sintiéndolo mucho: Presentación del libro de<br>la escritora Silvia Suárez.
+          </p>
+        </div>
+
+        <div class="events">
+          <h2>
+            <img src="..//Images/CC-Web-Bullet.svg" alt="Icon" width="12" height="12">
+            Librería
+          </h2>
+          <div class="time">
+            <p>jueves 24<br>5:30 pm—7:30 pm<br>Librería Café de Pombo</p>
+          </div>
+          <p>
+            Sintiéndolo mucho: Presentación del libro de<br>la escritora Silvia Suárez.
+          </p>
+        </div>
+
+        <div class="events">
+          <h2>
+            <img src="..//Images/CC-Web-Bullet.svg" alt="Icon" width="12" height="12">
+            Librería
+          </h2>
+          <div class="time">
+            <p>jueves 24<br>5:30 pm—7:30 pm<br>Librería Café de Pombo</p>
+          </div>
+          <p>
+            Sintiéndolo mucho: Presentación del libro de<br>la escritora Silvia Suárez.
+          </p>
+        </div>
+        
+
+
+        </div>
+        <!-- Repeat above .events block 14 more times -->
+        <!-- For brevity, they can be generated in JS or templating language if needed -->
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-border"></div>
+    <p class="footer-text">Auspiciadores</p>
+    <div class="sponsors">
+      <img src="..//Images/CC-Web-Auspiciadores.svg" alt="Sponsor 1" />
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const aboutToggle = document.getElementById("about-toggle");
+
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const dropdownAbout = document.getElementById("dropdown-about");
+
+    const main = document.querySelector(".main");
+    const body = document.body;
+
+    let openDropdown = null;
+
+    function closeDropdown(dropdown) {
+      dropdown.classList.remove("show");
+      dropdown.style.height = "0";
+      updateMainHeight();
+      body.classList.remove("lock-scroll");
+
+      if (dropdown === dropdownMenu) menuToggle.classList.remove("active");
+      if (dropdown === dropdownAbout) aboutToggle.classList.remove("active");
+
+      openDropdown = null;
+    }
+
+    function openDropdownWithContent(dropdown) {
+      dropdown.classList.add("show");
+      dropdown.style.height = dropdown.scrollHeight + "px";
+
+      requestAnimationFrame(() => {
+        updateMainHeight();
+      });
+
+      body.classList.add("lock-scroll");
+
+      if (dropdown === dropdownMenu) menuToggle.classList.add("active");
+      if (dropdown === dropdownAbout) aboutToggle.classList.add("active");
+
+      openDropdown = dropdown;
+    }
+
+    function toggleDropdown(clickedDropdown) {
+      if (openDropdown === clickedDropdown) {
+        closeDropdown(clickedDropdown);
+      } else if (openDropdown === null) {
+        openDropdownWithContent(clickedDropdown);
+      } else {
+        const previouslyOpen = openDropdown;
+        closeDropdown(previouslyOpen);
+        setTimeout(() => {
+          openDropdownWithContent(clickedDropdown);
+        }, 400);
+      }
+    }
+
+    function updateMainHeight() {
+      const header = document.querySelector(".header");
+      const footer = document.querySelector(".footer");
+      const dropdown = document.querySelector(".dropdown.show");
+
+      const headerRect = header.getBoundingClientRect();
+      const footerRect = footer.getBoundingClientRect();
+
+      const dropdownHeight = dropdown ? dropdown.scrollHeight : 0;
+      const headerHeight = header.offsetHeight;
+      const footerHeight = footer.offsetHeight;
+
+      const availableHeight = window.innerHeight - headerHeight - dropdownHeight - footerHeight;
+
+      main.style.minHeight = `${availableHeight}px`;
+    }
+
+    window.addEventListener("resize", updateMainHeight);
+    document.addEventListener("DOMContentLoaded", updateMainHeight);
+
+    menuToggle.addEventListener("click", () => toggleDropdown(dropdownMenu));
+    aboutToggle.addEventListener("click", () => toggleDropdown(dropdownAbout));
+  </script>
+
+</body>
+</html>

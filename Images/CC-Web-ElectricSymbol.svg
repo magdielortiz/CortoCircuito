@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 390.1 652.6">
+  <!-- Generator: Adobe Illustrator 29.0.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 186)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: blue;
+      }
+
+      .st1 {
+        fill: #fafafa;
+      }
+
+      .st2 {
+        fill: none;
+        stroke: blue;
+        stroke-miterlimit: 10;
+        stroke-width: 1.2px;
+      }
+
+      .st3 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" width="390.1" height="652.6"/>
+    </clipPath>
+  </defs>
+  <g id="Fondo">
+    <rect class="st1" x="0" y="-119.4" width="390" height="844"/>
+  </g>
+  <g id="Arte">
+    <line class="st2" x1="27" y1="1" x2="363" y2="1"/>
+    <line class="st2" x1="27" y1="651.9" x2="363" y2="651.9"/>
+    <g>
+      <rect class="st0" width="390.1" height="652.6"/>
+      <g class="st3">
+        <polygon class="st1" points="208.5 482 274.7 482 126.1 610.5 82.4 482 146.5 482 222.6 327.8 71.2 327.8 195 56.4 265.3 56.4 160.3 274.7 318.8 274.7 208.5 482"/>
+      </g>
+    </g>
+  </g>
+</svg>
