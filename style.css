@@ -263,6 +263,25 @@ a:link, a:visited {
   flex: 1;
 }
 
+@keyframes vibrate {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-2px, 0); } /* Small horizontal shift left */
+  20% { transform: translate(2px, 0); }  /* Small horizontal shift right */
+  30% { transform: translate(-2px, 0); }
+  40% { transform: translate(2px, 0); }
+  50% { transform: translate(-2px, 0); }
+  60% { transform: translate(2px, 0); }
+  70% { transform: translate(-2px, 0); }
+  80% { transform: translate(2px, 0); }
+  90% { transform: translate(-2px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.electric-icon {
+  /* Apply the animation */
+  animation: vibrate 0.4s; /* Adjust duration and repetition as needed */
+}
+
 /* Desktop Version */
 @media (min-width: 667px) {
   body {
