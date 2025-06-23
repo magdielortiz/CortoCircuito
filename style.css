@@ -202,6 +202,7 @@ a:link, a:visited {
   width: auto;
   max-height: 100%;
   object-fit: contain;
+  animation: vibrate 0.4s; /* Adjust duration and repetition as needed */
 }
 
 .overlay {
@@ -279,7 +280,6 @@ a:link, a:visited {
 
 .electric-icon {
   /* Apply the animation */
-  animation: vibrate 0.4s; /* Adjust duration and repetition as needed */
 }
 
 /* Desktop Version */
