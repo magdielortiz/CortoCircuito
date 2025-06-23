@@ -178,7 +178,7 @@ a:link, a:visited {
 .main {
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   text-align: center;
   background-color: #fafafa;
@@ -364,6 +364,7 @@ a:link, a:visited {
     flex-direction: column;
     justify-content: center;
     background-color: #0000ff;
+    align-items: center;
   }
 
   .center-icon img {

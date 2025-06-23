@@ -278,10 +278,6 @@ a:link, a:visited {
   100% { transform: translate(0, 0); }
 }
 
-.electric-icon {
-  /* Apply the animation */
-}
-
 /* Desktop Version */
 @media (min-width: 667px) {
   body {
