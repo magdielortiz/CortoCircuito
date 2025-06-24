@@ -180,7 +180,7 @@ a:link, a:visited {
 .main {
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: flex-start; /* <-- this was align-items: center */
   flex-direction: column;
   text-align: center;
   background-color: #0000ff;
@@ -189,11 +189,8 @@ a:link, a:visited {
 }
 
 .center-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 70vh;
+  height: auto; /* or a fixed height if needed */
 }
 
 .center-icon img {
