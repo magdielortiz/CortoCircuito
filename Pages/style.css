@@ -208,7 +208,7 @@ a:link, a:visited {
 
 .program {
   text-align: left;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   margin-left: 25px;
   margin-right: 100px;
 }
@@ -268,11 +268,14 @@ a:link, a:visited {
   width: 87vw;
   text-align: center;
   margin-top: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
   margin-bottom: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  overflow: hidden;
 }
 
 .partners-row {
@@ -281,7 +284,7 @@ a:link, a:visited {
   justify-content: center;
   align-items: center;
   border-bottom: 1.5px solid #0000ff;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
 }
 
 .partners-row img {
@@ -375,9 +378,11 @@ a:link, a:visited {
     display: flex;
     flex-direction: row; /* horizontal layout */
     align-items: center;
-    background-color: rgba(7, 24, 244, 0.7);
+    background-color: #0000ff;
+    border: 1.5px solid #FAFAFA;
+    border-radius: 15px;
     padding: 20px;
-    max-width: 550px;
+    max-width: 520px;
     margin-top: 0vh;
     z-index: 2;
     position: absolute;
@@ -392,9 +397,15 @@ a:link, a:visited {
   }
 
   .overlay p {
-    font-size: 24px;
+    font-size: 22px;
     color: #ffffff;
     margin: 0;
     padding-left: 15px;
+  }
+
+  .overlay p span {
+    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
 }
