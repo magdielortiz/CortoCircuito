@@ -189,6 +189,7 @@ a:link, a:visited {
 }
 
 .center-icon {
+  background-color: #0000ff;
   display: flex;
   align-items: center;
   justify-content: center;
