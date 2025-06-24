@@ -295,10 +295,36 @@ a:link, a:visited {
 .credits {
   text-align: left;
   font-size: 12px;
-  margin-top: 50px;
+  margin-top: 45px;
   margin-bottom: 100px;
   margin-left: 25px;
   font-weight: 400 !important;
+}
+
+.productos {
+  margin-top: 25px;
+}
+
+.productos h2 {
+  font-size: 16px;
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-weight: 400 !important;
+  font-style: normal;
+}
+
+.first {
+  margin-top: 25px;
+
+}
+
+.productos-tittle {
+  font-size: 20px;
+}
+
+.productos-description {
+  font-size: 20px;
+  font-weight: 400 !important;
+  font-style: normal;
 }
 
 
@@ -389,7 +415,7 @@ a:link, a:visited {
     border: 1.5px solid #FAFAFA;
     border-radius: 15px;
     padding: 20px;
-    max-width: 520px;
+    max-width: 510px;
     margin-top: 0vh;
     z-index: 2;
     position: absolute;
