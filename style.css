@@ -278,6 +278,7 @@ a:link, a:visited {
   body {
     margin: 0;
     background-color: #0000ff;
+    overflow: hidden;
   }
 
   .header,
@@ -290,6 +291,7 @@ a:link, a:visited {
     height: 100vh;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
 
   .center-icon img {
