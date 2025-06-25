@@ -210,7 +210,6 @@ a:link, a:visited {
   text-align: left;
   margin-bottom: 100px;
   margin-left: 25px;
-  margin-right: 100px;
 }
 
 .program h1 {
@@ -245,6 +244,17 @@ a:link, a:visited {
   font-size: 21px;
   font-weight: 500 !important;
   font-style: normal;
+}
+
+.inline-icon {
+  width: 11.5px;
+  height: auto;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.icon-label {
+  white-space: nowrap; /* keep name and icon on same line if possible */
 }
 
 .manifiesto {
