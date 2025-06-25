@@ -259,6 +259,11 @@ a:link, a:visited {
   flex: 1;
 }
 
+@keyframes flash-fast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 @keyframes vibrate {
   0% { transform: translate(0, 0); }
   10% { transform: translate(-2px, 0); } /* Small horizontal shift left */
@@ -296,6 +301,7 @@ a:link, a:visited {
 
   .center-icon img {
     width: 250px;
+    display: none;
   }
 
   .overlay {
