@@ -455,4 +455,9 @@ a:link, a:visited {
     font-weight: 400;
     font-style: normal;
   }
+
+  .icon-label {
+    white-space: nowrap;
+    display: none;
+  } 
 }
