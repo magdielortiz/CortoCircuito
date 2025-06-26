@@ -178,27 +178,31 @@ a:link, a:visited {
 }
 
 .main {
-  display: flex;
-  justify-content: start;
-  align-items: flex-start; /* <-- this was align-items: center */
-  flex-direction: column;
-  text-align: center;
+  position: relative;
   background-color: #0000ff;
   width: 100vw;
-  height: 100%;
+  height: calc(100vh - 210px); /* Adjust this based on your header+footer height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .center-icon {
-  width: 100%;
-  height: auto; /* or a fixed height if needed */
+  height: 100%;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .center-icon img {
-  height: 125vw;
+  height: 100%;
   width: auto;
   max-height: 100%;
   object-fit: contain;
-  animation: vibrate 0.4s; /* Adjust duration and repetition as needed */
+  display: block;
 }
 
 .overlay {
