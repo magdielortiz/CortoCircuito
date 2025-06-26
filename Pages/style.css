@@ -295,6 +295,10 @@ a:link, a:visited {
   padding-bottom: 12px;
 }
 
+.partners-row:last-child {
+  border-bottom: none;
+}
+
 .partners-row img {
   width: 100%;
   height: auto;
