@@ -71,43 +71,43 @@
   <script>
     const menuToggle = document.getElementById("menu-toggle");
     const aboutToggle = document.getElementById("about-toggle");
-
+  
     const dropdownMenu = document.getElementById("dropdown-menu");
     const dropdownAbout = document.getElementById("dropdown-about");
-
+  
     const main = document.querySelector(".main");
     const body = document.body;
-
+  
     let openDropdown = null;
-
+  
     function closeDropdown(dropdown) {
       dropdown.classList.remove("show");
       dropdown.style.height = "0";
       updateMainHeight();
       body.classList.remove("lock-scroll");
-
+  
       if (dropdown === dropdownMenu) menuToggle.classList.remove("active");
       if (dropdown === dropdownAbout) aboutToggle.classList.remove("active");
-
+  
       openDropdown = null;
     }
-
+  
     function openDropdownWithContent(dropdown) {
       dropdown.classList.add("show");
       dropdown.style.height = dropdown.scrollHeight + "px";
-
+  
       requestAnimationFrame(() => {
         updateMainHeight();
       });
-
+  
       body.classList.add("lock-scroll");
-
+  
       if (dropdown === dropdownMenu) menuToggle.classList.add("active");
       if (dropdown === dropdownAbout) aboutToggle.classList.add("active");
-
+  
       openDropdown = dropdown;
     }
-
+  
     function toggleDropdown(clickedDropdown) {
       if (openDropdown === clickedDropdown) {
         closeDropdown(clickedDropdown);
@@ -121,30 +121,38 @@
         }, 400);
       }
     }
-
+  
     function updateMainHeight() {
       const header = document.querySelector(".header");
       const footer = document.querySelector(".footer");
       const dropdown = document.querySelector(".dropdown.show");
-
-      const headerRect = header.getBoundingClientRect();
-      const footerRect = footer.getBoundingClientRect();
-
-      const dropdownHeight = dropdown ? dropdown.scrollHeight : 0;
-      const headerHeight = header.offsetHeight;
-      const footerHeight = footer.offsetHeight;
-
-      const availableHeight = window.innerHeight - headerHeight - dropdownHeight - footerHeight;
-
-      main.style.minHeight = `${availableHeight}px`;
+  
+      // Only adjust height when dropdowns are closed
+      if (!dropdown) {
+        const headerHeight = header.offsetHeight;
+        const footerHeight = footer.offsetHeight;
+        const viewportHeight = window.innerHeight;
+  
+        const availableHeight = viewportHeight - headerHeight - footerHeight;
+  
+        main.style.height = `${availableHeight}px`;
+      }
     }
-
+  
+    function initMainHeight() {
+      // Always run this once on load, even if dropdowns aren't open
+      const header = document.querySelector(".header");
+      const footer = document.querySelector(".footer");
+      const viewportHeight = window.innerHeight;
+      const mainHeight = viewportHeight - header.offsetHeight - footer.offsetHeight;
+      main.style.height = `${mainHeight}px`;
+    }
+  
     window.addEventListener("resize", updateMainHeight);
-    document.addEventListener("DOMContentLoaded", updateMainHeight);
-
+    document.addEventListener("DOMContentLoaded", initMainHeight);
+  
     menuToggle.addEventListener("click", () => toggleDropdown(dropdownMenu));
     aboutToggle.addEventListener("click", () => toggleDropdown(dropdownAbout));
   </script>
-
 </body>
 </html>
