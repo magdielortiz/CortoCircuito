@@ -456,6 +456,10 @@ a:link, a:visited {
     font-style: normal;
   }
 
+  .partners {
+    display: none;
+  }
+
   .icon-label {
     white-space: nowrap;
     display: none;
