@@ -78,9 +78,14 @@
         <div class="date">
           <p>Fecha de cierre:<br>6 de julio</p>
         </div>
-        <div class="info-button">
-          <p>Info</p>
-        </div>
+        <a
+        href="https://drive.google.com/drive/folders/1LiuaTKWRxICcjufu_mTq67HqdHdyyIex?usp=sharing"
+        class="info-button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Info
+      </a>
       </div>
 
       <!-- 2nd page -->
@@ -132,6 +137,15 @@
         </div>
       </div>
     </main>
+
+  </div>
+
+  <div class="pagination-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
   </div>
 
   <footer class="footer">
@@ -142,108 +156,126 @@
     </div>
   </footer>
 
-  <script>
-    // —————————————
-    // DROPDOWNS & DYNAMIC MAIN HEIGHT
-    // —————————————
-    const menuToggle   = document.getElementById("menu-toggle");
-    const aboutToggle  = document.getElementById("about-toggle");
-    const dropdownMenu = document.getElementById("dropdown-menu");
-    const dropdownAbout= document.getElementById("dropdown-about");
-    const main         = document.querySelector(".main");
-    const body         = document.body;
-    let openDropdown   = null;
-  
-    function closeDropdown(dropdown) {
-      dropdown.classList.remove("show");
-      dropdown.style.height = "0";
-      updateMainHeight();
-      body.classList.remove("lock-scroll");
-      if (dropdown === dropdownMenu)   menuToggle.classList.remove("active");
-      if (dropdown === dropdownAbout)  aboutToggle .classList.remove("active");
-      openDropdown = null;
+<script>
+  // —————————————
+  // DROPDOWNS & DYNAMIC MAIN HEIGHT
+  // —————————————
+  const menuToggle    = document.getElementById("menu-toggle");
+  const aboutToggle   = document.getElementById("about-toggle");
+  const dropdownMenu  = document.getElementById("dropdown-menu");
+  const dropdownAbout = document.getElementById("dropdown-about");
+  const main          = document.querySelector(".main");
+  const body          = document.body;
+  let   openDropdown  = null;
+
+  function closeDropdown(dropdown) {
+    dropdown.classList.remove("show");
+    dropdown.style.height = "0";
+    updateMainHeight();
+    body.classList.remove("lock-scroll");
+    if (dropdown === dropdownMenu)   menuToggle.classList.remove("active");
+    if (dropdown === dropdownAbout)  aboutToggle.classList.remove("active");
+    openDropdown = null;
+  }
+
+  function openDropdownWithContent(dropdown) {
+    dropdown.classList.add("show");
+    dropdown.style.height = dropdown.scrollHeight + "px";
+    requestAnimationFrame(updateMainHeight);
+    body.classList.add("lock-scroll");
+    if (dropdown === dropdownMenu)   menuToggle.classList.add("active");
+    if (dropdown === dropdownAbout)  aboutToggle.classList.add("active");
+    openDropdown = dropdown;
+  }
+
+  function toggleDropdown(clickedDropdown) {
+    if (openDropdown === clickedDropdown) {
+      closeDropdown(clickedDropdown);
+    } else if (openDropdown === null) {
+      openDropdownWithContent(clickedDropdown);
+    } else {
+      const prev = openDropdown;
+      closeDropdown(prev);
+      setTimeout(() => openDropdownWithContent(clickedDropdown), 400);
     }
-  
-    function openDropdownWithContent(dropdown) {
-      dropdown.classList.add("show");
-      dropdown.style.height = dropdown.scrollHeight + "px";
-      requestAnimationFrame(updateMainHeight);
-      body.classList.add("lock-scroll");
-      if (dropdown === dropdownMenu)   menuToggle.classList.add("active");
-      if (dropdown === dropdownAbout)  aboutToggle .classList.add("active");
-      openDropdown = dropdown;
-    }
-  
-    function toggleDropdown(clickedDropdown) {
-      if (openDropdown === clickedDropdown) {
-        closeDropdown(clickedDropdown);
-      } else if (openDropdown === null) {
-        openDropdownWithContent(clickedDropdown);
-      } else {
-        const prev = openDropdown;
-        closeDropdown(prev);
-        setTimeout(() => openDropdownWithContent(clickedDropdown), 400);
-      }
-    }
-  
-    function updateMainHeight() {
-      const header   = document.querySelector(".header");
-      const footer   = document.querySelector(".footer");
-      const dropdown = document.querySelector(".dropdown.show");
-      // Only resize when NO dropdown is open:
-      if (!dropdown) {
-        const avail = window.innerHeight
-                    - header.offsetHeight
-                    - footer.offsetHeight;
-        main.style.height = avail + "px";
-      }
-    }
-  
-    function initMainHeight() {
-      const header = document.querySelector(".header");
-      const footer = document.querySelector(".footer");
-      const avail  = window.innerHeight
-                   - header.offsetHeight
-                   - footer.offsetHeight;
+  }
+
+  function updateMainHeight() {
+    const header   = document.querySelector(".header");
+    const footer   = document.querySelector(".footer");
+    const dropdown = document.querySelector(".dropdown.show");
+    if (!dropdown) {
+      const avail = window.innerHeight
+                  - header.offsetHeight
+                  - footer.offsetHeight;
       main.style.height = avail + "px";
     }
-  
-    menuToggle .addEventListener("click", () => toggleDropdown(dropdownMenu));
-    aboutToggle.addEventListener("click", () => toggleDropdown(dropdownAbout));
-    window.addEventListener("resize", updateMainHeight);
-    document.addEventListener("DOMContentLoaded", initMainHeight);
-  
-  
-    // —————————————————————————————
-    // SMOOTH “SNAP” SWIPE FOR .main ON MOBILE
-    // —————————————————————————————
-    ;(function() {
-      const slider     = main;                            // your <main>
-      const panels     = slider.querySelectorAll(".section");
-      const panelCount = panels.length;
-      const threshold  = 0.2;                             // 20% swipe to trigger
-      let   startX     = 0;
-  
-      slider.addEventListener("touchstart", e => {
-        startX = e.touches[0].clientX;
+  }
+
+  function initMainHeight() {
+    const header = document.querySelector(".header");
+    const footer = document.querySelector(".footer");
+    const avail  = window.innerHeight
+                 - header.offsetHeight
+                 - footer.offsetHeight;
+    main.style.height = avail + "px";
+  }
+
+  menuToggle.addEventListener("click", () => toggleDropdown(dropdownMenu));
+  aboutToggle.addEventListener("click", () => toggleDropdown(dropdownAbout));
+  window.addEventListener("resize", updateMainHeight);
+  document.addEventListener("DOMContentLoaded", initMainHeight);
+
+
+  // —————————————————————————————
+  // SMOOTH “SNAP” SWIPE & PAGINATION DOTS
+  // —————————————————————————————
+  ;(function() {
+    const slider     = main;
+    const panels     = slider.querySelectorAll(".section");
+    const panelCount = panels.length;
+    const threshold  = 0.2;    // 20% swipe to move
+    let   startX     = 0;
+
+    // grab our dots
+    const dots = document.querySelectorAll(".pagination-dots .dot");
+    function setActiveDot(i) {
+      dots.forEach((d, idx) => 
+        d.classList.toggle("active", idx === i)
+      );
+    }
+    // start with first dot active
+    setActiveDot(0);
+
+    slider.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener("touchend", e => {
+      const endX    = e.changedTouches[0].clientX;
+      const dx      = startX - endX;
+      const width   = slider.offsetWidth;
+      const current = Math.round(slider.scrollLeft / width);
+      let   target  = current;
+
+      if      (dx >  width * threshold && current < panelCount - 1) target = current + 1;
+      else if (dx < -width * threshold && current > 0)               target = current - 1;
+
+      slider.scrollTo({
+        left:     target * width,
+        behavior: "smooth"
       });
-  
-      slider.addEventListener("touchend", e => {
-        const endX    = e.changedTouches[0].clientX;
-        const dx      = startX - endX;
-        const width   = slider.offsetWidth;
-        const current = Math.round(slider.scrollLeft / width);
-        let   target  = current;
-  
-        if      (dx >  width * threshold && current < panelCount - 1) target = current + 1;
-        else if (dx < -width * threshold && current > 0)               target = current - 1;
-  
-        slider.scrollTo({
-          left:     target * width,
-          behavior: "smooth"
-        });
-      });
-    })();
-  </script>
+
+      // immediately update dot
+      setActiveDot(target);
+    });
+
+    // also sync on any scroll (momentum, programmatic, etc)
+    slider.addEventListener("scroll", () => {
+      const idx = Math.round(slider.scrollLeft / slider.offsetWidth);
+      setActiveDot(idx);
+    });
+  })();
+</script>
 </body>
 </html>
