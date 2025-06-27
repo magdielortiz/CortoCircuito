@@ -50,12 +50,86 @@
 
   <div class="main-wrapper">
     <main class="main">
-      <div class="center-icon">
-        <img src="Images/CC-Web-ElectricSymbol.svg" alt="Icono central" />
+      <!-- 1st “page” (exactly as before) -->
+      <div class="section section-first">
+        <div class="center-icon">
+          <img src="Images/CC-Web-ElectricSymbol.svg" alt="Icono central" />
+        </div>
+        <div class="overlay">
+          <img src="Images/CC-Web-WarningIcon.svg" alt="Icono" class="overlay-icon" />
+          <p>
+            Riesgo de sobrecarga cultural.
+            <span>Sugerimos continuar la navegación en su dispositivo móvil.</span>
+          </p>
+        </div>
       </div>
-      <div class="overlay">
-        <img src="Images/CC-Web-WarningIcon.svg" alt="Icono" class="overlay-icon" />
-        <p>Riesgo de sobrecarga cultural. <span>Sugerimos continuar la navegación en su dispositivo móvil.</span></p>
+
+      <!-- 2nd page -->
+      <div class="section convocatoria">
+        <div class="previa first">
+          <p>Previa CortoCircuito</p>
+        </div>
+        <div class="tittle">
+          <p>Convocatoria</p>
+        </div>
+        <div class="info">
+          <p>“De la Sucursal del Cielo al<br>Corazón del Mundo”. Beca<br>para residencia artística en<br>La Linterna, Cali.</p>
+        </div>
+        <div class="date">
+          <p>Fecha de cierre:<br>6 de julio</p>
+        </div>
+        <div class="info-button">
+          <p>Info</p>
+        </div>
+      </div>
+
+      <!-- 2nd page -->
+      <div class="section conversatorio">
+        <div class="previa">
+          <p>Previa CortoCircuito</p>
+        </div>
+        <div class="tittle">
+          <p>Conversatorio</p>
+        </div>
+        <div class="info">
+          <p>“Identidades samarias”,<br>un espacio para repensar<br>quiénes somos.</p>
+        </div>
+        <div class="date">
+          <p>La Casa del Totumo:<br>17 de julio de 4:30 a 6:30</p>
+        </div>
+      </div>
+
+      <!-- 2nd page -->
+      <div class="section prelanzamiento">
+        <div class="previa">
+          <p>Previa CortoCircuito</p>
+        </div>
+        <div class="tittle">
+          <p>Prelanzamiento</p>
+        </div>
+        <div class="info">
+          <p>Comunidad, selección de<br>música, cócteles eléctricos<br>y merch. Aforo limitado.</p>
+        </div>
+        <div class="date">
+          <p>La Casa del Totumo:<br>17 de julio de 4:30 a 6:30</p>
+        </div>
+      </div>
+
+      <!-- 2nd page -->
+      <div class="section ofrenda">
+        <div class="previa">
+          <p>Previa CortoCircuito</p>
+        </div>
+        <div class="tittle">
+          <p>Ofrenda al Agua</p>
+        </div>
+        <div class="info">
+          <p>Todo nace del agua y vuelve<br>al agua. Ritual de gratitud<br>y pagamento al Territorio.</p>
+        </div>
+        <div class="date">
+          <p>Desembocadura del río<br>Manzanares, playa de Los Cocos:<br>
+            18 de julio, 6:00 pm</p>
+        </div>
       </div>
     </main>
   </div>
@@ -69,42 +143,34 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const aboutToggle = document.getElementById("about-toggle");
-  
+    // —————————————
+    // DROPDOWNS & DYNAMIC MAIN HEIGHT
+    // —————————————
+    const menuToggle   = document.getElementById("menu-toggle");
+    const aboutToggle  = document.getElementById("about-toggle");
     const dropdownMenu = document.getElementById("dropdown-menu");
-    const dropdownAbout = document.getElementById("dropdown-about");
-  
-    const main = document.querySelector(".main");
-    const body = document.body;
-  
-    let openDropdown = null;
+    const dropdownAbout= document.getElementById("dropdown-about");
+    const main         = document.querySelector(".main");
+    const body         = document.body;
+    let openDropdown   = null;
   
     function closeDropdown(dropdown) {
       dropdown.classList.remove("show");
       dropdown.style.height = "0";
       updateMainHeight();
       body.classList.remove("lock-scroll");
-  
-      if (dropdown === dropdownMenu) menuToggle.classList.remove("active");
-      if (dropdown === dropdownAbout) aboutToggle.classList.remove("active");
-  
+      if (dropdown === dropdownMenu)   menuToggle.classList.remove("active");
+      if (dropdown === dropdownAbout)  aboutToggle .classList.remove("active");
       openDropdown = null;
     }
   
     function openDropdownWithContent(dropdown) {
       dropdown.classList.add("show");
       dropdown.style.height = dropdown.scrollHeight + "px";
-  
-      requestAnimationFrame(() => {
-        updateMainHeight();
-      });
-  
+      requestAnimationFrame(updateMainHeight);
       body.classList.add("lock-scroll");
-  
-      if (dropdown === dropdownMenu) menuToggle.classList.add("active");
-      if (dropdown === dropdownAbout) aboutToggle.classList.add("active");
-  
+      if (dropdown === dropdownMenu)   menuToggle.classList.add("active");
+      if (dropdown === dropdownAbout)  aboutToggle .classList.add("active");
       openDropdown = dropdown;
     }
   
@@ -114,45 +180,70 @@
       } else if (openDropdown === null) {
         openDropdownWithContent(clickedDropdown);
       } else {
-        const previouslyOpen = openDropdown;
-        closeDropdown(previouslyOpen);
-        setTimeout(() => {
-          openDropdownWithContent(clickedDropdown);
-        }, 400);
+        const prev = openDropdown;
+        closeDropdown(prev);
+        setTimeout(() => openDropdownWithContent(clickedDropdown), 400);
       }
     }
   
     function updateMainHeight() {
-      const header = document.querySelector(".header");
-      const footer = document.querySelector(".footer");
+      const header   = document.querySelector(".header");
+      const footer   = document.querySelector(".footer");
       const dropdown = document.querySelector(".dropdown.show");
-  
-      // Only adjust height when dropdowns are closed
+      // Only resize when NO dropdown is open:
       if (!dropdown) {
-        const headerHeight = header.offsetHeight;
-        const footerHeight = footer.offsetHeight;
-        const viewportHeight = window.innerHeight;
-  
-        const availableHeight = viewportHeight - headerHeight - footerHeight;
-  
-        main.style.height = `${availableHeight}px`;
+        const avail = window.innerHeight
+                    - header.offsetHeight
+                    - footer.offsetHeight;
+        main.style.height = avail + "px";
       }
     }
   
     function initMainHeight() {
-      // Always run this once on load, even if dropdowns aren't open
       const header = document.querySelector(".header");
       const footer = document.querySelector(".footer");
-      const viewportHeight = window.innerHeight;
-      const mainHeight = viewportHeight - header.offsetHeight - footer.offsetHeight;
-      main.style.height = `${mainHeight}px`;
+      const avail  = window.innerHeight
+                   - header.offsetHeight
+                   - footer.offsetHeight;
+      main.style.height = avail + "px";
     }
   
+    menuToggle .addEventListener("click", () => toggleDropdown(dropdownMenu));
+    aboutToggle.addEventListener("click", () => toggleDropdown(dropdownAbout));
     window.addEventListener("resize", updateMainHeight);
     document.addEventListener("DOMContentLoaded", initMainHeight);
   
-    menuToggle.addEventListener("click", () => toggleDropdown(dropdownMenu));
-    aboutToggle.addEventListener("click", () => toggleDropdown(dropdownAbout));
+  
+    // —————————————————————————————
+    // SMOOTH “SNAP” SWIPE FOR .main ON MOBILE
+    // —————————————————————————————
+    ;(function() {
+      const slider     = main;                            // your <main>
+      const panels     = slider.querySelectorAll(".section");
+      const panelCount = panels.length;
+      const threshold  = 0.2;                             // 20% swipe to trigger
+      let   startX     = 0;
+  
+      slider.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+      });
+  
+      slider.addEventListener("touchend", e => {
+        const endX    = e.changedTouches[0].clientX;
+        const dx      = startX - endX;
+        const width   = slider.offsetWidth;
+        const current = Math.round(slider.scrollLeft / width);
+        let   target  = current;
+  
+        if      (dx >  width * threshold && current < panelCount - 1) target = current + 1;
+        else if (dx < -width * threshold && current > 0)               target = current - 1;
+  
+        slider.scrollTo({
+          left:     target * width,
+          behavior: "smooth"
+        });
+      });
+    })();
   </script>
 </body>
 </html>
