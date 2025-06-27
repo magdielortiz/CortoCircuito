@@ -171,6 +171,7 @@ a:visited {
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  overscroll-behavior: none;
   height: 100%; /* set dynamically by your JS */
 }
 
