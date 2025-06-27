@@ -36,7 +36,6 @@ a:visited {
   width: 100vw;
   padding: 25px;
   padding-bottom: 0;
-  position: static;
 }
 
 .logo img {
@@ -204,10 +203,11 @@ a:visited {
 }
 
 /* 3rd–5th pages: Conversatorio, Prelanzamiento, Ofrenda */
+/* (originally had a light bg + inset border; overridden below) */
 .conversatorio,
 .prelanzamiento,
 .ofrenda {
-  position: relative;              /* for the inset line */
+  position: relative;
   align-items: flex-start;
   text-align: left;
   justify-content: flex-start;
@@ -215,7 +215,6 @@ a:visited {
   background-color: #fafafa;
 }
 
-/* inset top border 25px from each side */
 .conversatorio::before,
 .prelanzamiento::before,
 .ofrenda::before {
@@ -234,7 +233,7 @@ a:visited {
   font-weight: 400;
   font-style: normal;
   margin-bottom: 20px;
-  color: var(--blue);              /* default for Conversatorio, Prelanzamiento, Ofrenda */
+  color: var(--blue);
 }
 
 /* On Convocatoria page only, previa must be white */
@@ -385,6 +384,7 @@ a:visited {
     align-items: center;
     overflow: hidden;
     scroll-snap-type: none;
+    overscroll-behavior: none;
   }
 
   .section:not(.section-first) {
@@ -430,4 +430,31 @@ a:visited {
     font-weight: 400;
     font-style: normal;
   }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+  OVERRIDES FOR ALL FOUR PANELS (2–5)
+──────────────────────────────────────────────────────────────────────────────*/
+
+/* make Convocatoria, Conversatorio, Prelanzamiento & Ofrenda all blue+white */
+.section.convocatoria,
+.section.conversatorio,
+.section.prelanzamiento,
+.section.ofrenda {
+  background-color: var(--blue);
+  color: white;
+}
+
+/* hide the old inset border on 3–5 */
+.section.conversatorio::before,
+.section.prelanzamiento::before,
+.section.ofrenda::before {
+  display: none;
+}
+
+.section.convocatoria .previa p,
+.section.conversatorio .previa p,
+.section.prelanzamiento .previa p,
+.section.ofrenda .previa p {
+  color: white;
 }
