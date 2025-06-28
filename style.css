@@ -26,7 +26,6 @@ a:visited {
   color: var(--blue);
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -70,8 +69,6 @@ a:visited {
   font-style: normal;
 }
 
-.about-button { }
-
 .menu-button {
   background: transparent;
   padding: 8px 16px;
@@ -98,7 +95,6 @@ a:visited {
   top: 1.5px;
 }
 
-/* Dropdowns */
 .dropdown {
   overflow: hidden;
   height: 0;
@@ -133,6 +129,7 @@ a:visited {
 
 .insta-link {
   font-size: 16px;
+  font-weight: 400;
   text-align: center;
   border: 1.5px solid var(--blue);
   border-radius: 16px;
@@ -153,14 +150,12 @@ a:visited {
   margin-bottom: 25px;
 }
 
-/* Main wrapper */
 .main-wrapper {
   position: relative;
   margin: 0;
   padding: 0;
 }
 
-/* Main area as horizontal swiper */
 .main {
   position: relative;
   background-color: var(--blue);
@@ -173,14 +168,13 @@ a:visited {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   overscroll-behavior: none;
-  height: 100%; /* set dynamically by your JS */
+  height: 100%;
 }
 
 .main::-webkit-scrollbar {
   display: none;
 }
 
-/* Each “page” */
 .section {
   flex: 0 0 100%;
   scroll-snap-align: start;
@@ -193,7 +187,6 @@ a:visited {
   color: white;
 }
 
-/* 2nd page: Convocatoria */
 .convocatoria {
   align-items: flex-start;
   text-align: left;
@@ -202,8 +195,6 @@ a:visited {
   background-color: var(--blue);
 }
 
-/* 3rd–5th pages: Conversatorio, Prelanzamiento, Ofrenda */
-/* (originally had a light bg + inset border; overridden below) */
 .conversatorio,
 .prelanzamiento,
 .ofrenda {
@@ -227,7 +218,6 @@ a:visited {
   background-color: var(--blue);
 }
 
-/* Previa label styling */
 .previa p {
   font-size: 11px;
   font-weight: 400;
@@ -236,12 +226,10 @@ a:visited {
   color: var(--blue);
 }
 
-/* On Convocatoria page only, previa must be white */
 .convocatoria .previa p {
   color: #fafafa;
 }
 
-/* Titles, info, date */
 .tittle p {
   font-size: 20px;
   margin-bottom: 20px;
@@ -261,25 +249,23 @@ a:visited {
   margin-bottom: 30px;
 }
 
-/* Text color inside Conversatorio, Prelanzamiento, Ofrenda */
 .conversatorio,
 .prelanzamiento,
 .ofrenda {
   color: var(--blue);
 }
 
-/* Make sure the Info link shows its width/padding */
 .info-button {
   display: inline-block;
-  width: auto;           /* let the text dictate the size */
-  padding: 8px 16px;     /* match your header buttons’ padding */
+  width: auto;
+  padding: 8px 16px;
 }
 
 a.info-button {
   padding: .5px;
   font-size: 1rem;
   background: var(--blue);
-  color: #fafafa;               /* white text */
+  color: #fafafa;
   border-radius: 15px;
   border: 1.5px solid #fafafa;
   cursor: pointer;
@@ -288,10 +274,9 @@ a.info-button {
   font-weight: 400;
   font-style: normal;
   text-align: center;
-  text-decoration: none;        /* remove any default link underline */
+  text-decoration: none;
 }
 
-/* center-icon + vibration on first page */
 .center-icon {
   height: 100%;
   width: auto;
@@ -309,12 +294,10 @@ a.info-button {
   animation: vibrate 0.4s;
 }
 
-/* overlay hidden by default on mobile */
 .overlay {
   display: none;
 }
 
-/* Footer */
 .footer {
   text-align: center;
   position: fixed;
@@ -367,7 +350,6 @@ a.info-button {
   z-index: 2000;
 }
 
-/* 2) Dot styling */
 .pagination-dots .dot {
   width: 12px;
   height: 12px;
@@ -378,7 +360,6 @@ a.info-button {
   display: inline-block;
 }
 
-/* 3) Filled state */
 .pagination-dots .dot.active {
   background: white;
 }
@@ -398,7 +379,6 @@ a.info-button {
   100% { transform: translate(0, 0); }
 }
 
-/* Desktop view: revert to original look */
 @media (min-width: 667px) {
   body {
     background-color: var(--blue);
@@ -468,10 +448,6 @@ a.info-button {
   }
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
-  OVERRIDES FOR ALL FOUR PANELS (2–5)
-──────────────────────────────────────────────────────────────────────────────*/
-
 /* make Convocatoria, Conversatorio, Prelanzamiento & Ofrenda all blue+white */
 .section.convocatoria,
 .section.conversatorio,
@@ -481,7 +457,6 @@ a.info-button {
   color: white;
 }
 
-/* hide the old inset border on 3–5 */
 .section.conversatorio::before,
 .section.prelanzamiento::before,
 .section.ofrenda::before {

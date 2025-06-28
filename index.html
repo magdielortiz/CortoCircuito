@@ -50,7 +50,6 @@
 
   <div class="main-wrapper">
     <main class="main">
-      <!-- 1st “page” (exactly as before) -->
       <div class="section section-first">
         <div class="center-icon">
           <img src="Images/CC-Web-ElectricSymbol.svg" alt="Icono central" />
@@ -63,8 +62,6 @@
           </p>
         </div>
       </div>
-
-      <!-- 2nd page -->
       <div class="section convocatoria">
         <div class="previa first">
           <p>Previa CortoCircuito</p>
@@ -87,8 +84,6 @@
         Info
       </a>
       </div>
-
-      <!-- 2nd page -->
       <div class="section conversatorio">
         <div class="previa">
           <p>Previa CortoCircuito</p>
@@ -103,8 +98,6 @@
           <p>La Casa del Totumo:<br>17 de julio de 4:30 pm a 6:30 pm</p>
         </div>
       </div>
-
-      <!-- 2nd page -->
       <div class="section prelanzamiento">
         <div class="previa">
           <p>Previa CortoCircuito</p>
@@ -119,8 +112,6 @@
           <p>La Casa del Totumo:<br>17 de julio, a partir de las 7:00 pm</p>
         </div>
       </div>
-
-      <!-- 2nd page -->
       <div class="section ofrenda">
         <div class="previa">
           <p>Previa CortoCircuito</p>
@@ -137,9 +128,7 @@
         </div>
       </div>
     </main>
-
   </div>
-
   <div class="pagination-dots">
     <span class="dot active"></span>
     <span class="dot"></span>
@@ -147,7 +136,6 @@
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-
   <footer class="footer">
     <div class="footer-border"></div>
     <p class="footer-text">Auspiciadores</p>
@@ -155,11 +143,9 @@
       <img src="Images/CC-Web-Auspiciadores.svg" alt="Sponsor 1" />
     </div>
   </footer>
-
 <script>
-  // —————————————
+
   // DROPDOWNS & DYNAMIC MAIN HEIGHT
-  // —————————————
   const menuToggle    = document.getElementById("menu-toggle");
   const aboutToggle   = document.getElementById("about-toggle");
   const dropdownMenu  = document.getElementById("dropdown-menu");
@@ -226,10 +212,8 @@
   window.addEventListener("resize", updateMainHeight);
   document.addEventListener("DOMContentLoaded", initMainHeight);
 
-
-  // —————————————————————————————
   // SMOOTH “SNAP” SWIPE & PAGINATION DOTS
-  // —————————————————————————————
+
   ;(function() {
     const slider     = main;
     const panels     = slider.querySelectorAll(".section");
@@ -237,14 +221,13 @@
     const threshold  = 0.2;    // 20% swipe to move
     let   startX     = 0;
 
-    // grab our dots
     const dots = document.querySelectorAll(".pagination-dots .dot");
     function setActiveDot(i) {
       dots.forEach((d, idx) => 
         d.classList.toggle("active", idx === i)
       );
     }
-    // start with first dot active
+
     setActiveDot(0);
 
     slider.addEventListener("touchstart", e => {
@@ -266,11 +249,9 @@
         behavior: "smooth"
       });
 
-      // immediately update dot
       setActiveDot(target);
     });
 
-    // also sync on any scroll (momentum, programmatic, etc)
     slider.addEventListener("scroll", () => {
       const idx = Math.round(slider.scrollLeft / slider.offsetWidth);
       setActiveDot(idx);

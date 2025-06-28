@@ -11,7 +11,7 @@
 }
 
 body {
-  margin: 0; /* Remove default outer spacing */
+  margin: 0;
   background-color: #fafafa;
   color: #0000ff;
   font-family: "neue-haas-grotesk-text", sans-serif;
@@ -21,10 +21,9 @@ body {
 }
 
 a:link, a:visited {
-  color: #0000ff; /* Set the desired color here */
+  color: #0000ff;
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -44,7 +43,6 @@ a:link, a:visited {
   gap: 40px;
 }
 
-/* Active (dropdown open) */
 .header-button.active {
   background-color: #0000ff;
   color: white;
@@ -89,7 +87,6 @@ a:link, a:visited {
   background-color: var(--blue);
 }
 
-/* Dropdown container */
 .dropdown {
   overflow: hidden;
   height: 0;
@@ -97,13 +94,12 @@ a:link, a:visited {
   background-color: #FAFAFA;
 }
 
-/* Inner content */
 .dropdown-content {
   font-size: 25px;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 10px 25px 20px 25px; /* includes 10px padding-bottom */
+  padding: 10px 25px 20px 25px;
 }
 
 .dropdown-content a {
@@ -118,16 +114,15 @@ a:link, a:visited {
 
 }
 
-/* Flex row for "Aliados" and "Insta" */
 .dropdown-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
 
-/* Optional: refine width or spacing for Insta */
 .insta-link {
   font-size: 16px;
+  font-weight: 400;
   text-align: center;
   border: 1.5px solid #0000ff;
   border-radius: 16px;
@@ -135,7 +130,6 @@ a:link, a:visited {
   padding: .5px;
 }
 
-/* Border below dropdown */
 .dropdown-border {
   height: 1.5px;
   background-color: #0000ff;
@@ -144,14 +138,13 @@ a:link, a:visited {
   transition: opacity 0.3s ease;
 }
 
-/* Show border only when dropdown is open */
 .dropdown.show .dropdown-border {
   opacity: 1;
   margin-bottom: 25px;
 }
 
 .menu-button.active {
-  background-color: #0000ff; /* bright blue */
+  background-color: #0000ff;
   color: white;
   border: 1.5px solid #0000ff;
 }
@@ -203,7 +196,7 @@ a:link, a:visited {
 }
 
 .overlay {
-  display: none; /* Hidden by default on mobile */
+  display: none;
 }
 
 .program {
@@ -261,7 +254,7 @@ a:link, a:visited {
 }
 
 .icon-label {
-  white-space: nowrap; /* keep name and icon on same line if possible */
+  white-space: nowrap;
 }
 
 .manifiesto {
@@ -352,17 +345,13 @@ a:link, a:visited {
   margin-bottom: 50px;
 }
 
-
-/* Header and Footer Background */
 .header,
 .footer {
   background-color: #FAFAFA;
   width: 100vw;
-  padding: 25px; /* Internal spacing */
+  padding: 25px;
   padding-bottom: 0;
 }
-
-/* Footer */
 
 .footer {
   text-align: center;
@@ -434,7 +423,7 @@ a:link, a:visited {
 
   .overlay {
     display: flex;
-    flex-direction: row; /* horizontal layout */
+    flex-direction: row;
     align-items: center;
     background-color: #0000ff;
     border: 1.5px solid #FAFAFA;
@@ -445,7 +434,7 @@ a:link, a:visited {
     z-index: 2;
     position: absolute;
     text-align: left;
-    gap: 15px; /* space between icon and text */
+    gap: 15px;
   }
 
   .overlay-icon {
