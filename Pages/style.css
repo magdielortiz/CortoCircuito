@@ -210,6 +210,7 @@ a:link, a:visited {
   text-align: left;
   margin-bottom: 100px;
   margin-left: 25px;
+  width: -webkit-fill-available;
 }
 
 .program h1 {
@@ -244,6 +245,12 @@ a:link, a:visited {
   font-size: 21px;
   font-weight: 500 !important;
   font-style: normal;
+}
+
+.line {
+  border-bottom: 1px solid #0000ff;
+  padding-bottom: 30px;
+  margin-right: 25px;
 }
 
 .inline-icon {
