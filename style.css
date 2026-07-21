@@ -1,9 +1,15 @@
 :root {
-  --blue: #0000ff;
+  --blue: #000000;
   --light-blue: #cce5ff;
   --body-margin: 25px;
+
   font-size: 16px;
 }
+
+
+/* ----------------------------------------
+   GLOBAL RESET
+---------------------------------------- */
 
 * {
   box-sizing: border-box;
@@ -11,36 +17,64 @@
   padding: 0;
 }
 
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+
 body {
   margin: 0;
+  overflow: hidden;
+
   background-color: #fafafa;
   color: var(--blue);
+
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 500;
   font-style: normal;
+}
+
+
+body.lock-scroll {
   overflow: hidden;
 }
+
 
 a:link,
 a:visited {
   color: var(--blue);
 }
 
+
+/* ----------------------------------------
+   HEADER
+---------------------------------------- */
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  background-color: #fafafa;
+
   width: 100vw;
+
   padding: 25px;
   padding-bottom: 0;
+
+  background-color: #fafafa;
 }
 
+
 .logo img {
+  display: block;
   width: 110px;
+  height: auto;
   padding-top: 25px;
 }
+
 
 .header-buttons {
   display: flex;
@@ -49,77 +83,107 @@ a:visited {
   gap: 40px;
 }
 
+
 .top-buttons {
   display: flex;
-  gap: 10px;
   align-items: baseline;
+  gap: 10px;
 }
+
 
 .header-buttons button {
-  padding: .5px;
-  font-size: 1rem;
-  background: white;
-  color: var(--blue);
-  border-radius: 15px;
-  border: 1.5px solid var(--blue);
-  cursor: pointer;
   width: 60px;
+  padding: 0.5px;
+
+  border: 1.5px solid var(--blue);
+  border-radius: 15px;
+
+  background-color: white;
+  color: var(--blue);
+
   font-family: "neue-haas-grotesk-text", sans-serif;
+  font-size: 1rem;
   font-weight: 400;
   font-style: normal;
+
+  cursor: pointer;
 }
 
+
 .menu-button {
-  background: transparent;
   padding: 8px 16px;
+  background: transparent;
 }
+
 
 .header-button.active,
 .menu-button.active {
+  border: 1.5px solid var(--blue);
   background-color: var(--blue);
   color: white;
-  border: 1.5px solid var(--blue);
 }
+
 
 .header-border {
   width: 100vw;
   padding-top: 10px;
 }
 
+
 .header-border::before {
   content: "";
-  display: block;
-  height: 1.5px;
-  background-color: var(--blue);
+
   position: relative;
   top: 1.5px;
+
+  display: block;
+
+  width: 100%;
+  height: 1.5px;
+
+  background-color: var(--blue);
 }
+
+
+/* ----------------------------------------
+   DROPDOWNS
+---------------------------------------- */
 
 .dropdown {
-  overflow: hidden;
   height: 0;
-  transition: height 0.4s ease;
+  overflow: hidden;
+
   background-color: #fafafa;
+
+  transition: height 0.4s ease;
 }
 
+
 .dropdown-content {
-  font-size: 25px;
   display: flex;
   flex-direction: column;
   gap: 2px;
+
   padding: 10px 25px 20px;
+
+  font-size: 25px;
 }
+
 
 .dropdown-content a {
   text-decoration: none;
 }
 
+
 .dropdown-content p {
   margin: 0;
+
+  color: var(--blue);
+
   font-size: 17px;
   line-height: 1.25;
-  color: var(--blue);
 }
+
 
 .dropdown-row {
   display: flex;
@@ -127,262 +191,233 @@ a:visited {
   align-items: baseline;
 }
 
+
 .insta-link {
+  width: 60px;
+  padding: 0.5px;
+
+  border: 1.5px solid var(--blue);
+  border-radius: 16px;
+
   font-size: 16px;
   font-weight: 400;
   text-align: center;
-  border: 1.5px solid var(--blue);
-  border-radius: 16px;
-  width: 60px;
-  padding: .5px;
 }
 
-.dropdown-border {
-  height: 1.5px;
-  background-color: var(--blue);
-  margin: 0 25px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
-.dropdown.show .dropdown-border {
-  opacity: 1;
-  margin-bottom: 25px;
-}
+/* ----------------------------------------
+   MAIN CAROUSEL
+---------------------------------------- */
 
 .main-wrapper {
   position: relative;
+
+  width: 100%;
   margin: 0;
   padding: 0;
 }
 
+
 .main {
   position: relative;
-  background-color: var(--blue);
-  width: 100vw;
+
   display: flex;
   flex-direction: row;
+
+  width: 100vw;
+  height: 100%;
+
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+
+  background-color: var(--blue);
+
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  overscroll-behavior: none;
-  height: 100%;
+  scrollbar-width: none;
+
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+
+  -webkit-overflow-scrolling: touch;
 }
+
 
 .main::-webkit-scrollbar {
   display: none;
 }
 
+
+/* ----------------------------------------
+   IMAGE PANELS
+---------------------------------------- */
+
 .section {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 25px;
-  text-align: center;
-  color: white;
-}
-
-.convocatoria {
-  align-items: flex-start;
-  text-align: left;
-  justify-content: flex-start;
-  padding-top: 25px;
-  background-color: var(--blue);
-}
-
-.conversatorio,
-.prelanzamiento,
-.ofrenda {
   position: relative;
-  align-items: flex-start;
-  text-align: left;
-  justify-content: flex-start;
-  padding-top: 25px;
-  background-color: #fafafa;
-}
 
-.conversatorio::before,
-.prelanzamiento::before,
-.ofrenda::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: var(--body-margin);
-  right: var(--body-margin);
-  height: 1.5px;
-  background-color: var(--blue);
-}
-
-.previa p {
-  font-size: 11px;
-  font-weight: 400;
-  font-style: normal;
-  margin-bottom: 20px;
-  color: var(--blue);
-}
-
-.convocatoria .previa p {
-  color: #fafafa;
-}
-
-.tittle p {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.info p {
-  font-size: 20px;
-  font-weight: 500 !important;
-  font-style: normal;
-  margin-bottom: 20px;
-}
-
-.date p {
-  font-size: 20px;
-  font-weight: 400 !important;
-  font-style: normal;
-  margin-bottom: 30px;
-}
-
-.conversatorio,
-.prelanzamiento,
-.ofrenda {
-  color: var(--blue);
-}
-
-.info-button {
-  display: inline-block;
-  width: auto;
-  padding: 8px 16px;
-}
-
-a.info-button {
-  padding: .5px;
-  font-size: 1rem;
-  background: var(--blue);
-  color: #fafafa;
-  border-radius: 15px;
-  border: 1.5px solid #fafafa;
-  cursor: pointer;
-  width: 60px;
-  font-family: "neue-haas-grotesk-text", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  text-align: center;
-  text-decoration: none;
-}
-
-.center-icon {
-  height: 100%;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-icon img {
-  height: 100%;
-  width: auto;
-  max-height: 100%;
-  object-fit: contain;
+  flex: 0 0 100%;
   display: block;
-  animation: vibrate 0.4s;
+
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+
+  padding: 0;
+  overflow: hidden;
+
+  background-color: var(--blue);
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
+
+
+.image-section {
+  display: block;
+}
+
+
+.panel-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  user-select: none;
+  pointer-events: none;
+
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+
+/*
+Optional individual image positioning.
+
+Add one of these classes to an image in the HTML
+when you need to adjust how that specific image is cropped.
+
+Example:
+
+<img
+  src="Images/Homepage-02.jpg"
+  class="panel-image image-two"
+  alt="Corto Circuito, imagen 2"
+>
+
+.image-two {
+  object-position: center top;
+}
+*/
+
+
+/* ----------------------------------------
+   DESKTOP WARNING OVERLAY
+---------------------------------------- */
 
 .overlay {
   display: none;
 }
 
-.footer {
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  background-color: #fafafa;
-  z-index: 1000;
-  padding: 25px;
-  padding-top: 0;
-  box-sizing: border-box;
-}
 
-.footer-border::before {
-  content: "";
-  display: block;
-  height: 1.5px;
-  background-color: var(--blue);
-  position: relative;
-  bottom: 1.5px;
-}
-
-.footer-text {
-  font-size: 10px;
-  font-weight: 400;
-  font-style: normal;
-  text-align: left;
-  padding-top: 5px;
-}
-
-.sponsors {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 20px;
-}
-
-.sponsors img {
-  width: 30px;
-  height: auto;
-  flex: 1;
-}
+/* ----------------------------------------
+   PAGINATION DOTS
+---------------------------------------- */
 
 .pagination-dots {
   position: fixed;
-  bottom: 100px;
   right: var(--body-margin);
+  bottom: 100px;
+  z-index: 2000;
+
   display: flex;
   gap: 5px;
-  z-index: 2000;
 }
+
 
 .pagination-dots .dot {
+  display: inline-block;
+
   width: 12px;
   height: 12px;
+
   border: 1.5px solid white;
   border-radius: 50%;
-  background: transparent;
-  transition: background 0.3s ease;
-  display: inline-block;
+
+  background-color: transparent;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
+
 
 .pagination-dots .dot.active {
-  background: white;
+  background-color: white;
 }
 
-/* Vibration animation */
-@keyframes vibrate {
-  0% { transform: translate(0, 0); }
-  10% { transform: translate(-2px, 0); }
-  20% { transform: translate(2px, 0); }
-  30% { transform: translate(-2px, 0); }
-  40% { transform: translate(2px, 0); }
-  50% { transform: translate(-2px, 0); }
-  60% { transform: translate(2px, 0); }
-  70% { transform: translate(-2px, 0); }
-  80% { transform: translate(2px, 0); }
-  90% { transform: translate(-2px, 0); }
-  100% { transform: translate(0, 0); }
+
+/* ----------------------------------------
+   FOOTER
+---------------------------------------- */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100vw;
+
+  padding: 0 25px 25px;
+
+  background-color: #fafafa;
+
+  text-align: center;
 }
+
+
+.footer-border::before {
+  content: "";
+
+  position: relative;
+  bottom: 1.5px;
+
+  display: block;
+
+  width: 100%;
+  height: 1.5px;
+
+  background-color: var(--blue);
+}
+
+
+.footer-text {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 10px;
+
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: left;
+}
+
+
+/* ----------------------------------------
+   DESKTOP VIEW
+---------------------------------------- */
 
 @media (min-width: 667px) {
+
   body {
     background-color: var(--blue);
   }
+
 
   .header,
   .footer,
@@ -390,52 +425,90 @@ a.info-button {
     display: none;
   }
 
-  .main {
+
+  .main-wrapper {
+    width: 100vw;
     height: 100vh;
+  }
+
+
+  .main {
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    width: 100vw;
+    height: 100vh !important;
+
     overflow: hidden;
+
     scroll-snap-type: none;
     overscroll-behavior: none;
   }
+
+
+  .section {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+  }
+
 
   .section:not(.section-first) {
     display: none;
   }
 
-  .center-icon img {
-    width: 250px;
+
+  .section-first .panel-image {
     display: none;
   }
 
+
   .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: var(--blue);
+    gap: 15px;
+
+    width: calc(100% - 50px);
+    max-width: 510px;
+
+    padding: 20px;
+
     border: 1.5px solid #fafafa;
     border-radius: 15px;
-    padding: 20px;
-    max-width: 510px;
-    margin-top: 0;
-    z-index: 2;
-    position: absolute;
+
+    background-color: var(--blue);
+
     text-align: left;
-    gap: 15px;
+
+    transform: translate(-50%, -50%);
   }
+
 
   .overlay-icon {
+    flex-shrink: 0;
+
     width: 80px;
     height: auto;
-    flex-shrink: 0;
   }
 
+
   .overlay p {
-    font-size: 22px;
-    color: #ffffff;
     margin: 0;
     padding-left: 15px;
+
+    color: #ffffff;
+
+    font-size: 22px;
+    line-height: 1.15;
   }
+
 
   .overlay p span {
     font-family: "neue-haas-grotesk-text", sans-serif;
@@ -443,29 +516,9 @@ a.info-button {
     font-style: normal;
   }
 
+
   .pagination-dots {
     display: none;
   }
-}
 
-/* make Convocatoria, Conversatorio, Prelanzamiento & Ofrenda all blue+white */
-.section.convocatoria,
-.section.conversatorio,
-.section.prelanzamiento,
-.section.ofrenda {
-  background-color: var(--blue);
-  color: white;
-}
-
-.section.conversatorio::before,
-.section.prelanzamiento::before,
-.section.ofrenda::before {
-  display: none;
-}
-
-.section.convocatoria .previa p,
-.section.conversatorio .previa p,
-.section.prelanzamiento .previa p,
-.section.ofrenda .previa p {
-  color: white;
 }

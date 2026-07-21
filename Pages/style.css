@@ -1,5 +1,5 @@
 :root {
-  --blue: #0000ff;
+  --blue: #000000;
   --light-blue: #cce5ff;
   --body-margin: 25px;
   font-size: 16px;
@@ -13,7 +13,7 @@
 body {
   margin: 0;
   background-color: #fafafa;
-  color: #0000ff;
+  color: #000000;
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -21,7 +21,7 @@ body {
 }
 
 a:link, a:visited {
-  color: #0000ff;
+  color: #000000;
 }
 
 .header {
@@ -44,9 +44,9 @@ a:link, a:visited {
 }
 
 .header-button.active {
-  background-color: #0000ff;
+  background-color: #000000;
   color: white;
-  border: 1.5px solid #0000ff;
+  border: 1.5px solid #000000;
 }
 
 .top-buttons {
@@ -58,10 +58,10 @@ a:link, a:visited {
 .header-buttons button {
   padding: .5px;
   font-size: 1rem;
-  color: #0000ff;
+  color: #000000;
   background: white;
   border-radius: 15px;
-  border-color: #0000ff;
+  border-color: #000000;
   cursor: pointer;
   width: 60px;
   font-family: "neue-haas-grotesk-text", sans-serif;
@@ -70,7 +70,7 @@ a:link, a:visited {
 }
 
 .about-button {
-  border: 1.5px solid #0000ff;
+  border: 1.5px solid #000000;
 }
 
 
@@ -110,7 +110,7 @@ a:link, a:visited {
   margin: 0;
   font-size: 17px;
   line-height: 1.25;
-  color: #0000ff;
+  color: #000000;
 
 }
 
@@ -124,7 +124,7 @@ a:link, a:visited {
   font-size: 16px;
   font-weight: 400;
   text-align: center;
-  border: 1.5px solid #0000ff;
+  border: 1.5px solid #000000;
   border-radius: 16px;
   width: 60px;
   padding: .5px;
@@ -132,7 +132,7 @@ a:link, a:visited {
 
 .dropdown-border {
   height: 1.5px;
-  background-color: #0000ff;
+  background-color: #000000;
   margin: 0 25px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -144,15 +144,15 @@ a:link, a:visited {
 }
 
 .menu-button.active {
-  background-color: #0000ff;
+  background-color: #000000;
   color: white;
-  border: 1.5px solid #0000ff;
+  border: 1.5px solid #000000;
 }
 
 .menu-button {
   background: transparent;
   color: white;
-  border: 1.5px solid #0000ff;
+  border: 1.5px solid #000000;
   padding: 8px 16px;
   border-radius: 4px;
   font-size: 16px;
@@ -203,6 +203,7 @@ a:link, a:visited {
   text-align: left;
   margin-bottom: 100px;
   margin-left: 25px;
+  margin-right: 25px;
   width: -webkit-fill-available;
 }
 
@@ -238,12 +239,12 @@ a:link, a:visited {
   font-size: 21px;
   font-weight: 500 !important;
   font-style: normal;
+  margin-bottom: 15px;
 }
 
 .line {
-  border-bottom: 1px solid #0000ff;
+  border-bottom: 1px solid #000000;
   padding-bottom: 30px;
-  margin-right: 25px;
 }
 
 .inline-icon {
@@ -291,7 +292,7 @@ a:link, a:visited {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1.5px solid #0000ff;
+  border-bottom: 1.5px solid #000000;
   padding-bottom: 12px;
 }
 
@@ -374,37 +375,29 @@ a:link, a:visited {
 }
 
 .footer-text {
-  font-size: 10px;
-  font-weight: 400;
-  font-style: normal;
-  text-align: left;
-  padding-top: 5px;
-}
-
-.sponsors {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 20px;
-}
-
-.sponsors img {
-  width: 30px;
-  height: auto;
-  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: left;
+  padding-top: 10px;
 }
 
 /* Desktop Version */
 @media (min-width: 665px) {
   body {
     margin: 0;
-    background-color: #0000ff;
-    overflow: hidden; 
+    background-color: #000000;
+    overflow: hidden;
   }
 
   .header,
   .footer,
-  .dropdown {
+  .dropdown,
+  .program,
+  .manifiesto,
+  .credits {
     display: none;
   }
 
@@ -412,7 +405,7 @@ a:link, a:visited {
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-    background-color: #0000ff;
+    background-color: #000000;
     align-items: center;
   }
 
@@ -425,7 +418,7 @@ a:link, a:visited {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #0000ff;
+    background-color: #000000;
     border: 1.5px solid #FAFAFA;
     border-radius: 15px;
     padding: 20px;
