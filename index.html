@@ -396,6 +396,10 @@
         dots.forEach((dot, dotIndex) => {
           dot.classList.toggle("active", dotIndex === index);
         });
+
+        const pagination = document.querySelector(".pagination-dots");
+
+        pagination.classList.toggle("dark", index === 0);
       }
 
 

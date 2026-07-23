@@ -328,6 +328,8 @@ Example:
 ---------------------------------------- */
 
 .pagination-dots {
+  --dot-color: white;
+
   position: fixed;
   right: var(--body-margin);
   bottom: 100px;
@@ -338,27 +340,34 @@ Example:
 }
 
 
+/* Black dots only on the first image */
+
+.pagination-dots.dark {
+  --dot-color: black;
+}
+
+
 .pagination-dots .dot {
   display: inline-block;
 
   width: 12px;
   height: 12px;
 
-  border: 1.5px solid white;
+  border: 1.5px solid var(--dot-color);
   border-radius: 50%;
 
   background-color: transparent;
 
   transition:
+    border-color 0.3s ease,
     background-color 0.3s ease,
     transform 0.3s ease;
 }
 
 
 .pagination-dots .dot.active {
-  background-color: white;
+  background-color: var(--dot-color);
 }
-
 
 /* ----------------------------------------
    FOOTER
